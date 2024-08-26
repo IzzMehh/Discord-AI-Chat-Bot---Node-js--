@@ -65,6 +65,7 @@ client.on('interactionCreate', async interaction => {
 client.on('messageCreate', async (m) => {
     if (!m.author.bot) {
         try {
+            console.time("timer")
             const channel = await Guild.findOne({ channelId: m.channelId })
             if (channel) {
                 await m.channel.sendTyping()
